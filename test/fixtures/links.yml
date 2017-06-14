@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+honnold:
+  title: Alex Honnold Climbs Yosemite's El Capitan Without a Rope
+  url: http://www.nationalgeographic.com/adventure/features/athletes/alex-honnold/most-dangerous-free-solo-climb-yosemite-national-park-el-capitan/
+
+kagan:
+  title: Kagan\:\ 2017 is IBM Watson coming out party
+  url: http://www.rcrwireless.com/20170605/opinion/kagan-ibm-watson-tag10

@@ -1,0 +1,13 @@
+<% if object.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger center">
+      Ah snap! Hitmunk found <%= pluralize(object.errors.count, "error") %>
+      with your submission.
+    </div>
+    <ul>
+    <% object.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

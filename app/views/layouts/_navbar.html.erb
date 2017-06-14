@@ -1,0 +1,12 @@
+<header class="navbar navbar-fixed-top">
+  <div class="container">
+    <%= link_to "#{$SITE_TITLE}", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "About", "#" %></li>
+        <li><%= link_to "Sign up today", signup_path %></li>
+        <li><%= link_to "Add new link", new_link_path(@link), class: "btn-xs btn-warning" %></li>
+      </ul>
+    </nav>
+  </div>
+</header>

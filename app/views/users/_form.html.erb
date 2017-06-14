@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-6 col-md">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %> <!--f.object is @link -->
+
+      <%= f.label :username %>
+      <%= f.text_field :username, required: true %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, required: true %>
+      
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+
+      <!-- @user.new.new_record? == true will issue a POST request -->
+      <% if @user.new_record? %>
+        <%= f.submit "Sign up", class: "btn btn-primary",
+                                 method: :post %>
+      <% else %>
+      <%= f.submit "Edit your settings", class: "btn btn-primary",
+                               method: :patch %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
