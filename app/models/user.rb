@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   has_secure_password # gives us self.password=() and self.password_confirmation=()
   # Active Record Callbacks
-  before_save { self.email = self.email.downcase.strip   }
-  before_save :update_slug
+  before_save { self.email = self.email.downcase.strip }
   before_validation { self.username = self.username.strip }
+  before_save :update_slug
 
   # Active Record Validations
   validates :username, presence: true, uniqueness: { case_sensitive: false },
