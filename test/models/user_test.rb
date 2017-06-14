@@ -129,6 +129,13 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "password and password confirmation should be the same values" do
+    @user.password = "password"
+    @user.password_confirmation = "password1"
+    @user.save
+    assert_not @user.valid?
+  end
+
   # slug tests
 
   test "slug should be created upon user creation" do
