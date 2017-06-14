@@ -25,4 +25,7 @@ class UserSignupWorkflowTest < ActionDispatch::IntegrationTest
     assert_template "users/show"
     assert_not flash.empty?
   end
+
+  # rails test test/integration/user_signup_workflow_test.rb
+
 end
