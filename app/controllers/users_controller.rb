@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.create(users_params)
     if @user.save # automatically calls @user.valid?
       flash[:success] = "Boom! You're all signed up and ready to go, #{@user.username}."
-      redirect_to root_path
+      redirect_to user_path(@user)
     else
       render 'new' # automatically saves valid information on form
     end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(users_params)
       flash[:success] = "You've successfully updated your account information"
-      redirect_to user_url(@user)
+      redirect_to user_path(@user)
     else
       render 'edit' # automatically saves valid information on form
     end

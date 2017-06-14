@@ -3,6 +3,8 @@
 
   <p class="lead">Newest Posts</p>
   <% @links.each do |link| %>
-    <li><%= link_to "#{link.title}", link.url, target: :_blank %> <em>(<%= time_ago_in_words(link.created_at) %> ago)</em></li>
+    <li>
+      <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span> upvote | <%= link_to "#{link.title}", link.url, target: :_blank %> <em> (<%= time_ago_in_words(link.created_at) %> ago)</em>
+    </li>
   <% end %>
 </aside>
