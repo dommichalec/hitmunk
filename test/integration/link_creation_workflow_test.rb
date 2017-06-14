@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class LinkCreationWorkflowTest < ActionDispatch::IntegrationTest
+
+  def setup
+    @link = links(:honnold)
+  end
+
   test "should be created with valid information" do
     get new_link_path
     assert_template "links/new"
@@ -37,4 +42,4 @@ class LinkCreationWorkflowTest < ActionDispatch::IntegrationTest
   end
 end
 
-# rails test test/integration/link_creation_workflow_test.rb to run this tests
+# rails test test/integration/link_creation_workflow_test.rb

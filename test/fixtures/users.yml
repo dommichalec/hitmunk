@@ -4,8 +4,10 @@ dom:
   username: himynameisdom
   email: dom@sample.com
   password_digest: <%= BCrypt::Password.create('secret') %>
+  slug: himynameisdom
 
 shea:
   username: heyheywhattayashea
   email: shea@sample.com
   password_digest: <%= BCrypt::Password.create('secret') %>
+  slug: heyheywhattayashea
