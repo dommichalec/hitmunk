@@ -9,4 +9,7 @@ class InvalidPageWorkflowTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
     assert_response :success
   end
+
+  # rails test test/integration/invalid_page_workflow_test.rb
+
 end
