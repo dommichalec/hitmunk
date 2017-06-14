@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   # responds to PATCH /users/:id/edit
   def update
     if @user.update_attributes(users_params)
-      flash[:success] = "You've successfully updated your account information"
+      flash[:success] = "Nailed it! You've successfully updated your account information."
       redirect_to user_path(@user)
     else
       render 'edit' # automatically saves valid information on form
