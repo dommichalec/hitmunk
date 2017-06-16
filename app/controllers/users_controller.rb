@@ -6,12 +6,16 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  # responds to POST /users/new
+  # responds to GET /users
+  def index
+  end
+
+  # responds to POST /users
   def create
-    @user = User.create(users_params)
+    @user = User.new(users_params)
     if @user.save # automatically calls @user.valid?
-      flash[:success] = "Boom! You're all signed up and ready to go, #{@user.username}."
-      redirect_to user_path(@user)
+      login(@user)
+      redirect_to root_path
     else
       render 'new' # automatically saves valid information on form
     end

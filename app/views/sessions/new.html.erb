@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-4 col-md">
+    <%= form_for(:session, url: signin_path) do |f| %>
+
+      <%= f.label :username_or_email %>
+      <%= f.text_field :username_or_email, required: true %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, required: true %>
+
+      <%= f.submit "Sign in", class: "btn btn-primary", method: :post %>
+    <% end %>
+  </div>
+</div>
