@@ -7,7 +7,7 @@ class LinksController < ApplicationController
 
   # responds to GET /links/new
   def new
-    @link = current_user.links.new
+    @link = Link.new
   end
 
   # responds to POST /links/new
