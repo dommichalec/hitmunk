@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :require_correct_user, only: [:edit, :update]
 
   # responds to GET /signup
   def new

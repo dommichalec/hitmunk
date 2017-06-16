@@ -1,4 +1,5 @@
 class LinksController < ApplicationController
+  before_action :require_signin, only: [:new]
 
   # responds to GET /links
   def index

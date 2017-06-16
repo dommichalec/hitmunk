@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
            User.find_by(email: params[:session][:username_or_email].downcase)
     if authenticated_successfully?(user)
       login(user)
-      redirect_to root_url
+      redirect_to(session[:intended_url] || root_path)
     else
       flash.now[:danger] = "Hmm... #{$SITE_TITLE} couldn't authenicate your account with those credentials."
       render 'new'

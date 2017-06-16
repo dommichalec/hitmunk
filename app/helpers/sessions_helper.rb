@@ -10,4 +10,33 @@ module SessionsHelper
   def authenticated_successfully?(user)
     user && user.authenticate(params[:session][:password])
   end
+
+  # if there's a session id, find the user and assign it to current_user
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    rescue ActiveRecord::RecordNotFound
+  end
+
+  # require sign in before an action is taken in the controller
+  def require_signin
+    unless current_user
+      session[:intended_url] = request.url # stores intended URL in session
+      flash[:danger] = "Please sign in first!"
+      redirect_to signin_url
+    end
+  end
+
+  # checks to see if the current user is the user captured in the params hash
+  def current_user?(user)
+    current_user == user
+  end
+
+
+  def require_correct_user
+    @user = User.find_by_slug(params[:id])
+    unless current_user?(@user)
+      flash[:danger] = "You're unauthorized to edit other people's accounts."
+      redirect_to root_path
+    end
+  end
 end
