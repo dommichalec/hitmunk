@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_action :require_signin, only: [:new]
+  before_action :require_signin, only: [:new, :create]
 
   # responds to GET /links
   def index
@@ -8,12 +8,12 @@ class LinksController < ApplicationController
 
   # responds to GET /links/new
   def new
-    @link = Link.new
+    @link = current_user.links.new
   end
 
   # responds to POST /links/new
   def create
-    @link = Link.new(links_params)
+    @link = current_user.links.new(links_params)
     if @link.save # automatically calls @link.valid?
       flash[:success] = "Boom! Your link has been successfully added."
       redirect_to links_url

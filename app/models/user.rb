@@ -5,6 +5,9 @@ class User < ApplicationRecord
   before_validation { self.username = self.username.strip }
   before_save :update_slug
 
+  # Active Record Associations
+  has_many :links
+
   # Active Record Validations
   validates :username, presence: true, uniqueness: { case_sensitive: false },
             format: { without: /\s/, message: "cannot contain spaces (but can contain numbers, letters, and special characters like !@#_$%^&*-()" },

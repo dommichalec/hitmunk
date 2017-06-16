@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   # responds to GET /users
   def index
+    @users = User.all
   end
 
   # responds to POST /users

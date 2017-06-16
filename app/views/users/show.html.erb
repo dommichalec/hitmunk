@@ -3,6 +3,12 @@
   <div class="col-md-4 col-md">
     <h2><%= @user.username %></h2>
     <p><em>account created <%= time_ago_in_words(@user.created_at) %> ago</em></p>
-    <p><%= link_to "Update your information", edit_user_path(@user) %></p>
+    <% unless !current_user?(@user) %>
+      <p><%= link_to "Update your information", edit_user_path(@user) %></p>
+    <% end %>
+  </div>
+
+  <div class="col-md-4 col-md">
+    <h2>recently submitted links</h2>
   </div>
 </div>
