@@ -10,5 +10,8 @@
 
   <div class="col-md-4 col-md">
     <h2>recently submitted links</h2>
+    <% @user.links.each do |link| %>
+      <li><%= link_to link.title, link.url %></li>
+    <% end %>
   </div>
 </div>
