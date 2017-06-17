@@ -1,7 +1,11 @@
 <% provide(:title, "Top links") %>
 <p class="lead">Newest Posts</p>
-<% @links.each do |link| %>
-  <li>
-    <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span> upvote | <%= link_to "#{link.title}", link.url, target: :_blank %> <em> (<%= time_ago_in_words(link.created_at) %> ago)</em>
-  </li>
-<% end %>
+<div class="row">
+  <div class="col-md-12 col-md">
+    <% @links.each do |link| %>
+      <li>
+        <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span> upvote | <%= link_to "#{link.title}", link.url, target: :_blank %> <em> (<%= time_ago_in_words(link.created_at) %> ago)</em>
+      </li>
+    <% end %>
+  </div>
+</div>
