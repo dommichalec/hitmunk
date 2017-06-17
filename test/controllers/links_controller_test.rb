@@ -5,7 +5,7 @@ class LinksControllerTest < ActionDispatch::IntegrationTest
   test "should get links index page" do
     get links_url
     assert_response :success
-    assert_select "title", "Top links | #{$SITE_TITLE}"
+    assert_select "title", "Front Page | #{$SITE_TITLE}"
   end
 
   test "should get new link page" do

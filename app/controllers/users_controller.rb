@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   # responds to GET /users
   def index
-    @users = User.all
+    redirect_to root_path
   end
 
   # responds to POST /users

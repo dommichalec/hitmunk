@@ -9,6 +9,7 @@
       <%= f.password_field :password, required: true %>
 
       <%= f.submit "Sign in", class: "btn btn-primary", method: :post %>
-    <% end %>
+    <% end %><br>
+    <p><em>New to the <%= "#{$SITE_TITLE}" %> community? <%= link_to "Sign up here", signup_path %></em></p>
   </div>
 </div>

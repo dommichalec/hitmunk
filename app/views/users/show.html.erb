@@ -1,6 +1,6 @@
 <% provide(:title, "#{@user.username}") %>
 <div class="row">
-  <div class="col-md-4 col-md">
+  <div class="col-md-3 col-md">
     <h2><%= @user.username %></h2>
     <p><em>account created <%= time_ago_in_words(@user.created_at) %> ago</em></p>
     <% unless !current_user?(@user) %>
@@ -8,10 +8,23 @@
     <% end %>
   </div>
 
+  <% if @user.links.any? %>
   <div class="col-md-4 col-md">
     <h2>recently submitted links</h2>
     <% @user.links.each do |link| %>
-      <li><%= link_to link.title, link.url %></li>
+      <li>
+        <%= link_to link.title, link.url, target: :_blank %> (<%= pluralize(link.upvotes.count, "upvote") %>)
+      </li>
     <% end %>
   </div>
+  <% end %>
+
+  <% if @user.upvoted_links.any? %>
+  <div class="col-md-4 col-md">
+    <h2>recently upvoted links</h2>
+    <% @user.upvoted_links.each do |upvoted_link| %>
+      <li><%= link_to upvoted_link.title, upvoted_link.url, target: :_blank %></li>
+    <% end %>
+  </div>
+  <% end %>
 </div>

@@ -21,8 +21,9 @@ class SessionsController < ApplicationController
   # responds to DELETE /signout
   def destroy
     # fail
+    user = current_user
     logout if logged_in?
-    flash[:success] = "You've successfully logged out!"
+    flash[:success] = "See you later, #{user.username}!"
     redirect_to root_url
   end
 end

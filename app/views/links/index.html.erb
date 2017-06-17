@@ -1,10 +1,19 @@
-<% provide(:title, "Top links") %>
-<p class="lead">Newest Posts</p>
+<% provide(:title, "Front Page") %>
+<p class="lead">Latest Posts</p>
 <div class="row">
   <div class="col-md-12 col-md">
     <% @links.each do |link| %>
       <li>
-        <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span> | <%= link_to "#{link.title}", link.url, target: :_blank %> <em> (<%= time_ago_in_words(link.created_at) %> ago)</em>
+        <% unless link.already_liked_by?(current_user) %>
+          <%= link_to upvotes_path(link), method: :post do %>
+            <span class="glyphicon glyphicon-arrow-up"></span>
+          <% end %> |
+        <% end %>
+        <%= link_to "#{link.title}", link.url, target: :_blank %>
+        <em>
+          (<%= time_ago_in_words(link.created_at) %> ago)
+        </em> - <%= pluralize(link.upvotes.count, "upvote") %>
+        by <%= link_to "#{link.user.username}", user_path(link.user) %>
       </li>
     <% end %>
   </div>

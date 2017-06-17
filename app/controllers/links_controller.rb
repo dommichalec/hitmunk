@@ -3,6 +3,12 @@ class LinksController < ApplicationController
   # responds to GET /links
   def index
     @links = Link.all
+
+    @links.each do |link|
+      if current_user
+        @current_vote = current_user.upvotes.find_by(link_id: link.id)
+      end
+    end
   end
 
   # responds to GET /links/new
