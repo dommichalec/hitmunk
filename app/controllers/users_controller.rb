@@ -46,6 +46,7 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find_by_slug(params[:id])
+    redirect_to root_path if @user.nil?
   end
 
   def users_params
