@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :upvotes
   root "links#index"
   delete "/signout",    to: "sessions#destroy",  as:   "signout" #signout_path/url
   get "/signin",        to: "sessions#new",     as:   "signin"  #signin_path/url

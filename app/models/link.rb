@@ -4,6 +4,7 @@ class Link < ApplicationRecord
 
   # Active Record Associations
   belongs_to :user
+  has_many :upvotes, dependent: :destroy
 
   # Active Record Validations
   validates :title, presence: true, uniqueness: { case_sensitive: false }
