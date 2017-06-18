@@ -27,6 +27,10 @@ class LinksController < ApplicationController
     end
   end
 
+  # responds to GET /links/:id
+  def show
+  end
+
   private
 
   def links_params

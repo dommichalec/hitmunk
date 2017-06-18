@@ -7,7 +7,10 @@
         <% unless link.already_liked_by?(current_user) %>
           <%= link_to upvotes_path(link), method: :post do %>
             <span class="glyphicon glyphicon-arrow-up"></span>
-          <% end %> |
+          <% end %>
+        <% end %> |
+        <%= link_to link_path(link) do %>
+          <span class="glyphicon glyphicon-comment"></span>
         <% end %>
         <%= link_to "#{link.title}", link.url, target: :_blank %>
         <em>

@@ -7,6 +7,9 @@ class Link < ApplicationRecord
   has_many :upvotes, dependent: :destroy
   has_many :users_who_upvoted, through: :upvotes, source: :user
 
+  # Active Record Scopes
+  scope :ordered_by_upvotes, -> { order(:upvotes.count => :asc) }
+
   # Active Record Validations
   validates :title, presence: true, uniqueness: { case_sensitive: false }
 
@@ -15,4 +18,12 @@ class Link < ApplicationRecord
   def already_liked_by?(user)
     users_who_upvoted.include? user
   end
+
+  # def update_slug
+  #   self.slug = title.downcase.titleize
+  # end
+
+  # def to_param
+  #   slug
+  # end
 end
