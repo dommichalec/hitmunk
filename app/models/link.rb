@@ -1,6 +1,7 @@
 class Link < ApplicationRecord
   # Active Record Callbacks
   before_save {self.url = self.url.downcase}
+  before_save :update_slug
 
   # Active Record Associations
   belongs_to :user
@@ -19,11 +20,11 @@ class Link < ApplicationRecord
     users_who_upvoted.include? user
   end
 
-  # def update_slug
-  #   self.slug = title.downcase.titleize
-  # end
+  def update_slug
+    self.slug = title.parameterize
+  end
 
-  # def to_param
-  #   slug
-  # end
+  def to_param
+    slug
+  end
 end

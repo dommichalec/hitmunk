@@ -29,6 +29,7 @@ class LinksController < ApplicationController
 
   # responds to GET /links/:id
   def show
+    @link = Link.find_by_slug(params[:id])
   end
 
   private

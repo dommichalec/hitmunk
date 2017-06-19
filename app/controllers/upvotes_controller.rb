@@ -7,7 +7,7 @@ class UpvotesController < ApplicationController
 
   # responds to POST /upvotes
   def create
-    @link = Link.find_by(id: params[:format])
+    @link = Link.find_by_slug(params[:format])
     @link.upvotes.create!(user: current_user)
     redirect_to root_path
   end
