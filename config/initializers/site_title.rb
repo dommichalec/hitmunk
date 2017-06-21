@@ -1,1 +1,1 @@
-$SITE_TITLE = "Bitmunk"
+$SITE_TITLE = "Hitmunk"
