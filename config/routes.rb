@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   get "/signup",        to: "users#new",        as:   "signup"  #signup_path/url
 
   resources :users
-  resources :links
+  resources :links do
+    resources :comments, module: :links
+  end
+  resources :questions do
+    resources :comments, module: :questions
+  end
   resources :upvotes
   # redirect back to root_path if bad GET request is made
   get '*a' => redirect { |p, req| req.flash[:danger] = "Ah snap! Hitmunk couldn't find that page."; '/' }

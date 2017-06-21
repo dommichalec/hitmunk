@@ -7,6 +7,7 @@ class Link < ApplicationRecord
   belongs_to :user
   has_many :upvotes, dependent: :destroy
   has_many :users_who_upvoted, through: :upvotes, source: :user
+  has_many :comments, as: :commentable
 
   # Active Record Scopes
   scope :ordered_by_upvotes, -> { order(:upvotes.count => :asc) }
