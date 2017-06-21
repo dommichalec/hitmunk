@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class UpvoteTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  def setup
+    @link = links(:honnold)
+  end
 end
