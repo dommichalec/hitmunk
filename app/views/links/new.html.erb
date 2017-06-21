@@ -6,10 +6,10 @@
       <%= render 'shared/error_messages', object: f.object %> <!--f.object is @link -->
 
       <%= f.label :title %>
-      <%= f.text_field :title, required: true %>
+      <%= f.text_field :title, required: true, class: 'form-control' %>
 
       <%= f.label :url %>
-      <%= f.text_field :url, required: true %>
+      <%= f.text_field :url, required: true, class: 'form-control' %>
 
       <!-- @user.new.new_record? == true will issue a POST request -->
       <%= f.submit "Post", class: "btn btn-primary",

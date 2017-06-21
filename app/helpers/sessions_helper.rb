@@ -21,7 +21,7 @@ module SessionsHelper
   def require_signin
     unless current_user
       session[:intended_url] = request.url # stores intended URL in session
-      flash[:danger] = "Please sign in first!"
+      flash[:dismissible] = "Please sign in first!"
       redirect_to signin_url
     end
   end
@@ -35,7 +35,7 @@ module SessionsHelper
   def require_correct_user
     @user = User.find_by_slug(params[:id])
     unless current_user?(@user)
-      flash[:danger] = "You're unauthorized to edit other people's accounts."
+      flash[:dismissible] = "You're unauthorized to edit other people's accounts."
       redirect_to root_path
     end
   end

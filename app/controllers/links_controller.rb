@@ -20,7 +20,7 @@ class LinksController < ApplicationController
   def create
     @link = current_user.links.new(links_params)
     if @link.save # automatically calls @link.valid?
-      flash[:success] = "Boom! Your link has been successfully added."
+      flash[:dismissible] = "Boom! Your link has been successfully added."
       redirect_to links_url
     else
       render 'new' # automatically saves valid information on form

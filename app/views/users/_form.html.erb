@@ -4,16 +4,16 @@
       <%= render 'shared/error_messages', object: f.object %> <!--f.object is @link -->
 
       <%= f.label :username %>
-      <%= f.text_field :username, required: true %>
+      <%= f.text_field :username, required: true, class: 'form-control' %>
 
       <%= f.label :email %>
-      <%= f.email_field :email, required: true %>
+      <%= f.email_field :email, required: true, class: 'form-control' %>
 
       <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, class: 'form-control' %>
 
       <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
 
       <!-- @user.new.new_record? == true will issue a POST request -->
       <% if @user.new_record? %>

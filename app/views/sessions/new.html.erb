@@ -3,10 +3,10 @@
     <%= form_for(:session, url: signin_path) do |f| %>
 
       <%= f.label :username_or_email %>
-      <%= f.text_field :username_or_email, required: true %>
+      <%= f.text_field :username_or_email, required: true, class: 'form-control' %>
 
       <%= f.label :password %>
-      <%= f.password_field :password, required: true %>
+      <%= f.password_field :password, required: true, class: 'form-control' %>
 
       <%= f.submit "Sign in", class: "btn btn-primary", method: :post %>
     <% end %><br>

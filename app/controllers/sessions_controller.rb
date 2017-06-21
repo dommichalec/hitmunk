@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       login(user)
       redirect_to(session[:intended_url] || root_path)
     else
-      flash.now[:danger] = "Hmm... #{$SITE_TITLE} couldn't authenicate your account with those credentials."
+      flash.now[:dismissible] = "Hmm... #{$SITE_TITLE} couldn't authenicate your account with those credentials."
       render 'new'
     end
   end

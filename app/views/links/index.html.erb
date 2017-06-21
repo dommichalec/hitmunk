@@ -1,7 +1,7 @@
 <% provide(:title, "Front Page") %>
 <p class="lead">Latest Posts</p>
 <div class="row">
-  <div class="col-md-12 col-md">
+  <div class="col-md-8 col-md">
     <% @links.each do |link| %>
       <li>
         <% unless link.already_liked_by?(current_user) %>
@@ -19,5 +19,9 @@
         by <%= link_to "#{link.user.username}", user_path(link.user) %>
       </li>
     <% end %>
+  </div>
+  <div class="col-md-4 col-md">
+    <div id="coindesk-widget" data-size="mpu"></div>
+    <script type="text/javascript" src="//widget.coindesk.com/bpiticker/coindesk-widget.min.js"></script>
   </div>
 </div>
