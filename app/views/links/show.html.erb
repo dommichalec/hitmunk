@@ -1,10 +1,10 @@
 <% provide(:title, "#{@link.title}") %>
 <div class="row">
-  <div class="col-md-4 col-md">
+  <div class="col-md-5 col-md">
     <h2><%= link_to @link.title, @link.url, target: :_blank %></h2>
     <%= render partial: "comments/form", locals: { commentable: @link } %>
   </div>
-  <div class="col-md-8 col-md">
+  <div class="col-md-7 col-md">
     <h2>Comment Thread:</h2>
     <%= render partial: "comments/comments", locals: { commentable: @link } %>
   </div>

@@ -4,9 +4,13 @@ class CommentsController < ApplicationController
   def create
     @comment = @commentable.comments.new(comments_params)
     @comment.user = current_user
-    @comment.save
-    flash[:success] = "Your comment has been added, #{current_user.username}!"
-    redirect_to @commentable
+    if @comment.save
+      flash[:success] = "Your comment has been added, #{current_user.username}!"
+      redirect_to @commentable
+    else
+      flash[:danger] = "Your comment cannot be blank."
+      redirect_to @commentable
+    end
   end
 
   private
