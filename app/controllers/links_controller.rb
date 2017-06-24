@@ -20,6 +20,7 @@ class LinksController < ApplicationController
   def create
     @link = current_user.links.new(links_params)
     if @link.save # automatically calls @link.valid?
+      calculate_points_for(current_user, 2)
       flash[:success] = "Boom! Your link has been successfully added."
       redirect_to links_url
     else

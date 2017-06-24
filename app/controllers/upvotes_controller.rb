@@ -9,6 +9,7 @@ class UpvotesController < ApplicationController
   def create
     @link = Link.find_by_slug(params[:format])
     @link.upvotes.create!(user: current_user)
+    calculate_points_for(current_user, 1)
     redirect_to root_path
   end
 end

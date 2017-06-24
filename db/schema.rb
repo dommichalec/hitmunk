@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621200503) do
+ActiveRecord::Schema.define(version: 20170622221007) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "commentable_type"
@@ -52,9 +52,10 @@ ActiveRecord::Schema.define(version: 20170621200503) do
     t.string   "username"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "slug"
+    t.integer  "points",          default: 0
   end
 
 end
