@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622221007) do
+ActiveRecord::Schema.define(version: 20170625002919) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "commentable_type"
@@ -25,10 +25,11 @@ ActiveRecord::Schema.define(version: 20170622221007) do
   create_table "links", force: :cascade do |t|
     t.string   "title"
     t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "user_id"
     t.string   "slug"
+    t.boolean  "archived",   default: false
     t.index ["user_id"], name: "index_links_on_user_id"
   end
 
@@ -52,10 +53,11 @@ ActiveRecord::Schema.define(version: 20170622221007) do
     t.string   "username"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "slug"
     t.integer  "points",          default: 0
+    t.boolean  "admin",           default: false
   end
 
 end

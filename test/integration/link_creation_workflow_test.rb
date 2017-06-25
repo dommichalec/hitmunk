@@ -4,6 +4,7 @@ class LinkCreationWorkflowTest < ActionDispatch::IntegrationTest
 
   def setup
     @link = links(:honnold)
+    @user = users(:dom)
   end
 
   test "should be created with valid information" do
