@@ -10,7 +10,7 @@ class Link < ApplicationRecord
   has_many :comments, as: :commentable
 
   # Active Record Scopes
-  scope :ordered_by_upvotes, -> { order(:upvotes.count => :asc) }
+  scope :ordered_by_upvotes, -> { order(:upvotes => :desc) }
 
   # Active Record Validations
   validates :title, presence: true, uniqueness: { case_sensitive: false }
