@@ -5,6 +5,13 @@ class User < ApplicationRecord
   before_validation { self.username = self.username.strip }
   before_save :update_slug
 
+  # Mailboxer methods
+  acts_as_messageable
+
+  def mailboxer_email(user)
+    return email
+  end
+
   # Active Record Associations
   has_many :links
   has_many :upvotes, dependent: :destroy

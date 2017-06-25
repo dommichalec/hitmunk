@@ -25,6 +25,7 @@ gem 'turbolinks',              '5.0.1'
 gem 'jbuilder',                '2.6.1'
 gem 'valid_url'
 gem 'safe_target_blank'
+gem 'mailboxer', github: 'mailboxer/mailboxer'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

@@ -1,0 +1,8 @@
+<h1><%= current_user.username %>'s inbox</h1>
+<%= link_to "Start a new conversation", new_conversation_path, class: "btn btn-default" %>
+
+<% @conversations.each do |conversation| %>
+  <div>
+    <%= link_to conversation.subject, conversation_path(conversation) %>
+  </div>
+<% end %>

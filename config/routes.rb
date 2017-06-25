@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     resources :comments, module: :questions
   end
   resources :upvotes
+  resources :conversations do
+    resources :messages
+  end
   # redirect back to root_path if bad GET request is made
   get '*a' => redirect { |p, req| req.flash[:danger] = "Ah snap! Hitmunk couldn't find that page."; '/' }
 end
