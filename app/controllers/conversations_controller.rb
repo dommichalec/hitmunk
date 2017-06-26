@@ -11,6 +11,7 @@ class ConversationsController < ApplicationController
   def create
     receipt = User.find(params[:user_id])
     receipt = current_user.send_message(receipt, params[:body], params[:subject])
+    calculate_points_for(current_user, 1)
     redirect_to conversation_path(receipt.conversation)
   end
 

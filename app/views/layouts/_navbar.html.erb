@@ -4,7 +4,18 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "About", "#" %></li>
-        <li><%= link_to "Ask HM", "#" %></li>
+        <li><%= link_to "Ask", "#" %></li>
+        <li><%= link_to "Show", "#" %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Submit<b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "News", new_link_path(@link) %></li>
+            <li><%= link_to "Question", new_link_path(@link) %></li>
+            <li><%= link_to "Tool", new_link_path(@link) %></li>
+          </ul>
+        </li>
         <% if logged_in? %>
          <li class="dropdown">
            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -23,7 +34,6 @@
         <% else %>
           <li><%= link_to "Sign in", signin_path %></li>
         <% end %>
-        <li><%= link_to "Submit", new_link_path(@link) %></li>
       </ul>
     </nav>
   </div>
