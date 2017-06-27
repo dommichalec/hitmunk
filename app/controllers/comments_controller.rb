@@ -15,6 +15,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  def report
+    # generate_report()
+    ReportWorker.perform_async("01-01-2017", "12-31-2017")
+    render text: "REQUEST TO GENERATE A COMMENT ADDED TO QUEUE"
+  end
+
   private
 
   def comments_params

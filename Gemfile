@@ -26,6 +26,8 @@ gem 'jbuilder',                '2.6.1'
 gem 'valid_url'
 gem 'safe_target_blank'
 gem 'mailboxer', github: 'mailboxer/mailboxer'
+gem 'sinatra', github: 'sinatra/sinatra'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
