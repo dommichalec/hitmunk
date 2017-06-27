@@ -10,7 +10,7 @@ class ConversationsController < ApplicationController
   end
 
   def sent
-    @conversations = current_user.mailbox.inbox
+    @conversations = current_user.mailbox.sentbox
     render action: :index
   end
 
