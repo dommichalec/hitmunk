@@ -13,7 +13,7 @@
            <ul class="dropdown-menu">
              <li><%= link_to "Profile", user_path(current_user) %></li>
              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-             <li><%= link_to "My Conversations", conversations_path(current_user) %></li>
+             <li><%= link_to "My Mailbox (#{current_user.mailbox.inbox.unread(current_user).count})", conversations_path(current_user) %></li>
              <li class="divider"></li>
              <li>
                <%= link_to "Log out", signout_path, method: :delete %>

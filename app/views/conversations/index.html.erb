@@ -1,8 +1,22 @@
-<h1><%= current_user.username %>'s inbox</h1>
-<%= link_to "Start a new conversation", new_conversation_path, class: "btn btn-default" %>
-
-<% @conversations.each do |conversation| %>
-  <div>
-    <%= link_to conversation.subject, conversation_path(conversation) %>
+<h1><%= current_user.username %>'s Mailbox</h1>
+<div class="row">
+  <div class="col-md-4 col-md">
+      <%= link_to "New", new_conversation_path %> |
+      Unread (<%= current_user.mailbox.inbox.unread(current_user).count %>) |
+      Sent Messages (<%= current_user.mailbox.sentbox.count %>) |
+      Trashcan (<%= current_user.mailbox.trash.count %>)
+    <hr />
   </div>
-<% end %>
+
+  <div class="col-md-8 col-md">
+    <% @conversations.each do |conversation| %>
+      <div>
+        <% if conversation.is_unread?(current_user) %>
+          <strong><%= link_to conversation.subject, conversation_path(conversation) %></strong>
+        <% else %>
+          <%= link_to conversation.subject, conversation_path(conversation) %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

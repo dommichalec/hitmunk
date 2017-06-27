@@ -4,6 +4,21 @@ class ConversationsController < ApplicationController
     @conversations = current_user.mailbox.conversations
   end
 
+  def inbox
+    @conversations = current_user.mailbox.inbox
+    render action: :index
+  end
+
+  def sent
+    @conversations = current_user.mailbox.inbox
+    render action: :index
+  end
+
+  def trash
+    @conversations = current_user.mailbox.trash
+    render action: :index
+  end
+
   def new
     @recipients = User.all - [current_user]
   end
@@ -16,5 +31,6 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = current_user.mailbox.conversations.find(params[:id])
+    @conversation.mark_as_read(current_user)
   end
 end
