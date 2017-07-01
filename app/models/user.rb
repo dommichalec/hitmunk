@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :links
   has_many :upvotes, dependent: :destroy
   has_many :upvoted_links, through: :upvotes, source: :link
+  has_many :questions
 
   # Active Record Validations
   validates :username, presence: true, uniqueness: { case_sensitive: false },

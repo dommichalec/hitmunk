@@ -31,7 +31,7 @@ class LinkTest < ActiveSupport::TestCase
   test "url should be downcased" do
     @link.url = "HTTPS://wWw.exAmple.com"
     @link.save
-    assert_equal "https://www.example.com", @link.reload.url
+    assert_equal "https://www.example.com", @link.url
   end
 
   test "url validation should accept good urls" do

@@ -1,18 +1,18 @@
-<% provide(:title, "Add new link") %>
+<% provide(:title, "Add news link") %>
 <div class="row">
   <div class="col-md-4 col-md">
-    <h1>Add New Link</h1>
+    <h1>Add news link</h1>
     <%= form_for(@link, url: links_path(@link)) do |f| %>
       <%= render 'shared/error_messages', object: f.object %> <!--f.object is @link -->
 
       <%= f.label :title %>
-      <%= f.text_field :title, required: true, class: 'form-control' %>
+      <%= f.text_field :title, required: true, class: 'form-control', placeholder: "copy and paste title here" %>
 
-      <%= f.label :url %>
-      <%= f.text_field :url, required: true, class: 'form-control' %>
+      <%= f.label :url, "URL" %>
+      <%= f.text_field :url, required: true, class: 'form-control', placeholder: "copy and paste link url here" %>
 
       <!-- @user.new.new_record? == true will issue a POST request -->
-      <%= f.submit "Post", class: "btn btn-primary",
+      <%= f.submit "Post link", class: "btn btn-primary",
                                method: :post %>
     <% end %>
   </div>

@@ -1,0 +1,19 @@
+<% provide(:title, "Ask #{$SITE_TITLE}") %>
+<div class="row">
+  <div class="col-md-4 col-md">
+    <h1>Ask a question</h1>
+    <%= form_for(@question, url: questions_path(@question)) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %> <!--f.object is @link -->
+
+      <%= f.label :question %>
+      <%= f.text_field :title, required: true, class: 'form-control' %>
+
+      <%= f.label :details %>
+      <%= f.text_area :body, required: true, class: 'form-control' %>
+
+      <!-- @user.new.new_record? == true will issue a POST request -->
+      <%= f.submit "Post question", class: "btn btn-primary",
+                               method: :post %>
+    <% end %>
+  </div>
+</div>

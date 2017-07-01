@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  body: MyText
+  title: What is the meaning of life?
+  body: This is the body of my question. If you could help me out that would be great!
+  user_id: 1
 
 two:
-  title: MyString
-  body: MyText
+  title: What is 1 + 1?
+  body: I need to know the answer to this question.
+  user_id: 2

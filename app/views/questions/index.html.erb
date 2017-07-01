@@ -1,0 +1,8 @@
+<% provide(:title, "Ask Hitmunk") %>
+<div class="row">
+  <div class="col-md-12 col-md">
+    <% @questions.each do |question| %>
+      <li><%= link_to "Ask HM: #{question.title}", questions_path(question) %></li>
+    <% end %>
+  </div>
+</div>

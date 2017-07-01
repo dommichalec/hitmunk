@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
       # update current_user points by 1
       redirect_to @commentable
     else
-      flash[:danger] = "Your comment cannot be blank."
       redirect_to @commentable
     end
   end
