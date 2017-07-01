@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170630232648) do
+ActiveRecord::Schema.define(version: 20170701042753) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "commentable_type"
@@ -90,9 +90,10 @@ ActiveRecord::Schema.define(version: 20170630232648) do
   create_table "questions", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "user_id"
+    t.boolean  "archived",   default: false
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   root "links#index"
   get "/ask",           to: "questions#index",    as:   "ask"     #ask_path/url
+  get "/news",          to: "links#index",        as:   "news"    #news_path/url
+  get "/comments",      to: "comments#index",     as:   "comments"#comments_path/url
   delete "/signout",    to: "sessions#destroy",   as:   "signout" #signout_path/url
   get "/signin",        to: "sessions#new",       as:   "signin"  #signin_path/url
   post "/signin",       to: "sessions#create"

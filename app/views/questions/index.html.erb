@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-12 col-md">
     <% @questions.each do |question| %>
-      <li><%= link_to "Ask HM: #{question.title}", questions_path(question) %> <%= question.user.username %></li>
+      <li>Ask HM: <strong><%= link_to question.title, questions_path(question) %></strong> by <%= link_to question.user.username, user_path(question.user) %></li>
     <% end %>
   </div>
 </div>

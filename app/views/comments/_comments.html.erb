@@ -1,5 +1,5 @@
 <% commentable.comments.each do |comment| %>
   <div class="well">
-    <p><strong><%= link_to comment.user.username, user_path(comment.user), target: :_blank %> says:</strong> <%= comment.body %></p>
+    <p><strong><%= link_to comment.user.username, user_path(comment.user) %> says:</strong> <%= comment.body %></p>
   </div>
 <% end %>

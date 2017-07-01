@@ -13,7 +13,7 @@
           </span>
           <%= pluralize(link.comments.size, "comment") %>
         <% end %>
-          <%= link_to "#{link.title}", link.url, target: :_blank %>
+          <strong><%= link_to "#{link.title}", link.url, target: :_blank %></strong>
         <em>
           (<%= time_ago_in_words(link.created_at) %> ago)
         </em> - <%= pluralize(link.upvotes.count, "upvote") %>

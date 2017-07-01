@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
   before_action :require_signin
 
+  def index
+    @comments = Comment.all
+  end
+
   def create
     @comment = @commentable.comments.new(comments_params)
     @comment.user = current_user
