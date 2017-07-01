@@ -23,7 +23,8 @@ class QuestionsController < ApplicationController
   private
 
   def set_question
-    @question = current_user.questions.new
+    @user = current_user
+    @question = @user.questions.new
   end
 
   def questions_params
