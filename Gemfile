@@ -28,6 +28,8 @@ gem 'safe_target_blank'
 gem 'mailboxer', github: 'mailboxer/mailboxer'
 gem 'sinatra', github: 'sinatra/sinatra'
 gem 'sidekiq'
+gem 'skylight'
+gem 'figaro'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
