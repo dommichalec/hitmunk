@@ -2,7 +2,7 @@ class LinksController < ApplicationController
   before_action :require_signin, only: [:new, :create]
   # responds to GET /links
   def index
-    @links = Link.all
+    @links = Link.order_by_popularity
 
     @links.each do |link|
       if current_user

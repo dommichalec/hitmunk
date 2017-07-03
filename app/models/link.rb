@@ -9,13 +9,16 @@ class Link < ApplicationRecord
   has_many :users_who_upvoted, through: :upvotes, source: :user
   has_many :comments, as: :commentable
 
-  # Active Record Scopes
-  # scope :ordered_by_upvotes, -> { order(:upvotes.count => :desc) }
-
   # Active Record Validations
   validates :title, presence: true, uniqueness: { case_sensitive: false }
 
   validates :url, presence: true, url: true, uniqueness: { case_sensitive: false }
+
+  # refactor this into a scope later
+  def self.order_by_popularity
+    order("upvotes_count desc")
+  end
+
 
   def already_liked_by?(user)
     users_who_upvoted.include? user
