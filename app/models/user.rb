@@ -32,6 +32,7 @@ class User < ApplicationRecord
             # and password_confirmation for updating users
             format: { without: /\s/, message: "cannot contain spaces (but can contain numbers, letters, and special characters like !@#_$%^&*-()" }
 
+  # instance methods
   def update_slug
     self.slug = username
   end

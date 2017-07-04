@@ -1,6 +1,6 @@
 class Link < ApplicationRecord
   # Active Record Callbacks
-  before_save {self.url = self.url.downcase}
+  before_save { self.url = self.url.downcase }
   before_save :update_slug
 
   # Active Record Associations
@@ -11,15 +11,14 @@ class Link < ApplicationRecord
 
   # Active Record Validations
   validates :title, presence: true, uniqueness: { case_sensitive: false }
-
   validates :url, presence: true, url: true, uniqueness: { case_sensitive: false }
 
   # refactor this into a scope later
   def self.order_by_popularity
-    order("upvotes_count desc")
+    self.order('upvotes_count + comments_count desc')
   end
 
-
+  # instance methods
   def already_liked_by?(user)
     users_who_upvoted.include? user
   end

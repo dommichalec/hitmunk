@@ -11,7 +11,6 @@ class CommentsController < ApplicationController
     if @comment.save
       calculate_points_for(@comment.user, 1)
       flash[:success] = "Your comment has been added, #{@comment.user.username}!"
-      # update current_user points by 1
       redirect_to @commentable
     else
       redirect_to @commentable
