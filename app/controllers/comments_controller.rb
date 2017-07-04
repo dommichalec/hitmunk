@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :require_signin
+  before_action :require_signin, only: [:create]
 
   def index
     @comments = Comment.sort_by_created_at
