@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :require_signin
 
   def index
-    @comments = Comment.all
+    @comments = Comment.sort_by_created_at
   end
 
   def create

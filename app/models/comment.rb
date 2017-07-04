@@ -5,4 +5,9 @@ class Comment < ApplicationRecord
 
   # Active Record Validations
   validates :body, presence: true
+
+  # refactor this into a scope
+  def self.sort_by_created_at
+    self.order('created_at desc')
+  end
 end
