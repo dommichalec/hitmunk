@@ -4,7 +4,7 @@
     <%= form_for @user, validate: true do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
        <!--f.object is @link -->
-      <% if @link.new_record? %>
+      <% if @user.new_record? %>
         <%= f.label :username %>
         <%= f.email_field :username, required: true, class: 'form-control' %>
       <% end %>
