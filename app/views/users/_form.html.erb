@@ -6,7 +6,7 @@
        <!--f.object is @link -->
       <% if @user.new_record? %>
         <%= f.label :username %>
-        <%= f.email_field :username, required: true, class: 'form-control' %>
+        <%= f.text_field :username, required: true, class: 'form-control' %>
       <% end %>
 
       <%= f.label :email %>
