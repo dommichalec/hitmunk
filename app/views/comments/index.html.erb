@@ -1,4 +1,10 @@
 <h1>Recent comments</h1>
 <% @comments.each do |comment| %>
-  <li>"<%= comment.body %>" by <%= link_to comment.user.username, user_path(comment.user) %> on: <strong><%= link_to comment.commentable.title, link_path(comment.commentable)%></strong> <%= time_ago_in_words(comment.created_at) %> ago</li>
+  <li>"<%= comment.body %>" by <%= link_to comment.user.username, user_path(comment.user) %>
+    <% if comment.commentable_type == "Link" %>
+      on: <strong><%= link_to comment.commentable.title, link_path(comment.commentable)%></strong>
+    <% else %>
+      on: <strong><%= link_to comment.commentable.title, question_path(comment.commentable)%></strong>
+    <% end %>
+    <%= time_ago_in_words(comment.created_at) %> ago</li>
 <% end %>

@@ -33,6 +33,20 @@ class LinksController < ApplicationController
     @link = Link.find_by_slug(params[:id])
   end
 
+  def archive
+    @link = Link.find_by_slug(params[:id])
+    @link.archive
+    flash[:success] = "#{@link.title} has been successfully archived!"
+    redirect_to root_path
+  end
+
+  def unarchive
+    @link = Link.find_by_slug(params[:id])
+    @link.unarchive
+    flash[:success] = "#{@link.title} has been successfully unarchived!"
+    redirect_to root_path
+  end
+
   private
 
   def links_params

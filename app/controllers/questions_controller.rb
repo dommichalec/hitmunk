@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:new]
 
   def index
-    @questions = Question.all
+    @questions = Question.order_by_popularity
   end
 
   def new
@@ -18,6 +18,10 @@ class QuestionsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+    @question = Question.find_by_slug(params[:id])
   end
 
   private

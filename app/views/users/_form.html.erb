@@ -1,10 +1,8 @@
 <div class="row">
   <div class="col-md-4 col-md">
+    <h1><%= @user.username %></h1>
     <%= form_for @user, validate: true do |f| %>
       <%= render 'shared/error_messages', object: f.object %> <!--f.object is @link -->
-
-      <%= f.label :username %>
-      <%= f.text_field :username, required: true, class: 'form-control' %>
 
       <%= f.label :email %>
       <%= f.email_field :email, required: true, class: 'form-control' %>

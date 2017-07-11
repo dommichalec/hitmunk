@@ -1,2 +1,12 @@
-<h2>Discussion</h2>
-<%= render partial: "comments/comments", locals: # { commentable: @question } %>
+<% provide(:title, "#{@question.title}") %>
+
+<div class="row">
+  <div class="col-md-5 col-md">
+    <h2><%= @question.title %></h2>
+    <%= render partial: "comments/form", locals: { commentable: @question } %>
+  </div>
+  <div class="col-md-7 col-md">
+    <h2>Comment Thread:</h2>
+    <%= render partial: "comments/comments", locals: { commentable: @question } %>
+  </div>
+</div>

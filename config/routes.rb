@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => "/sidekiq"
 
   root "links#index"
+  get '/about',         to: "static_pages#about", as:   "about"   #about_path/url
   get "/ask",           to: "questions#index",    as:   "ask"     #ask_path/url
   get "/new",           to: "links#index",        as:   "new"     #new_path/url
   get "/comments",      to: "comments#index",     as:   "comments"#comments_path/url

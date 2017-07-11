@@ -2,23 +2,28 @@
 <div class="row">
   <div class="col-md-12 col-md">
     <% @links.each do |link| %>
-      <li>
-        <% unless link.already_liked_by?(current_user) %>
-          <%= link_to upvotes_path(link), method: :post do %>
-            <span class="glyphicon glyphicon-arrow-up"></span>
+      <% unless link.archived? %>
+        <li>
+          <% unless link.already_liked_by?(current_user) %>
+            <%= link_to upvotes_path(link), method: :post do %>
+              <span class="glyphicon glyphicon-arrow-up"></span>
+            <% end %>
+          <% end %> |
+          <%= link_to link_path(link) do %>
+            <span class="glyphicon glyphicon-comment">
+            </span>
+            <%= pluralize(link.comments.size, "comment") %>
           <% end %>
-        <% end %> |
-        <%= link_to link_path(link) do %>
-          <span class="glyphicon glyphicon-comment">
-          </span>
-          <%= pluralize(link.comments.size, "comment") %>
-        <% end %>
-          <strong><%= link_to "#{link.title}", link.url, target: :_blank %></strong>
-        <em>
-          (<%= time_ago_in_words(link.created_at) %> ago)
-        </em> - <%= pluralize(link.upvotes.count, "upvote") %>
-        by <%= link_to "#{link.user.username}", user_path(link.user) %>
-      </li>
+            <strong><%= link_to "#{link.title}", link.url, target: :_blank %></strong>
+          <em>
+            (<%= time_ago_in_words(link.created_at) %> ago)
+          </em> - <%= pluralize(link.upvotes.count, "upvote") %>
+          by <%= link_to "#{link.user.username}", user_path(link.user) %>
+          <% if logged_in? && current_user.admin? %>
+            <strong><%= link_to "archive", "#" %></strong>
+          <% end %>
+        </li>
+      <% end %>
     <% end %>
   </div>
   <div class="col-md-4 col-md">
