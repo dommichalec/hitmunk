@@ -27,7 +27,7 @@ gem 'valid_url'
 gem 'safe_target_blank'
 gem 'mailboxer', github: 'mailboxer/mailboxer'
 gem 'sinatra', github: 'sinatra/sinatra'
-gem 'sidekiq'
+gem 'sidekiq', '>= 6.2.1'
 gem 'skylight'
 gem 'figaro'
 
