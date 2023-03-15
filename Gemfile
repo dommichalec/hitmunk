@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails',                   '~> 5.0.3'
+gem 'rails', '~> 6.1.7', '>= 6.1.7.3'
 gem 'bcrypt',                  '3.1.11'
 gem 'faker',                   '1.7.3'
 gem 'carrierwave',             '1.1.0'
@@ -17,12 +17,12 @@ gem 'will_paginate',           '3.1.5'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'bootstrap-sass',          '3.3.7'
 gem 'puma',                    '3.9.1'
-gem 'sass-rails',              '5.0.6'
+gem 'sass-rails', '5.0.8'
 gem 'uglifier',                '3.2.0'
 gem 'coffee-rails',            '4.2.2'
 gem 'jquery-rails',            '4.3.1'
 gem 'turbolinks',              '5.0.1'
-gem 'jbuilder',                '2.6.1'
+gem 'jbuilder', '2.6.4'
 gem 'valid_url'
 gem 'safe_target_blank'
 gem 'mailboxer', github: 'mailboxer/mailboxer'
@@ -46,7 +46,7 @@ group :development do
 end
 
 group :test do
-  gem 'rails-controller-testing', '1.0.2'
+  gem 'rails-controller-testing', '1.0.3'
   gem 'minitest-reporters',       '1.1.14'
   gem 'guard',                    '2.14.1'
   gem 'guard-minitest',           '2.4.6'
