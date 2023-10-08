@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails',                   '~> 5.0.3'
+gem 'rails', '~> 7.1.0'
 gem 'bcrypt',                  '3.1.11'
 gem 'faker',                   '1.7.3'
 gem 'carrierwave',             '1.1.0'
@@ -24,7 +24,7 @@ gem 'jquery-rails',            '4.3.1'
 gem 'turbolinks',              '5.0.1'
 gem 'jbuilder',                '2.6.1'
 gem 'valid_url'
-gem 'safe_target_blank'
+gem 'safe_target_blank', '>= 1.0.2'
 gem 'mailboxer', github: 'mailboxer/mailboxer'
 gem 'sinatra', github: 'sinatra/sinatra'
 gem 'sidekiq'
